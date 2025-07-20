@@ -1,0 +1,37 @@
+enum RoomStatus {
+    OCCUPIED, PRE_RESERVED, VACANT, LOCKED
+}
+
+class Room {
+    int roomNumber;
+    String bedType; // "King" or "Two Queens"
+    boolean smoking;
+    RoomStatus status;
+    Guest guest;
+
+    public Room(int roomNumber, String bedType, boolean smoking) {
+        this.roomNumber = roomNumber;
+        this.bedType = bedType;
+        this.smoking = smoking;
+        this.status = RoomStatus.VACANT;
+    }
+
+    public boolean matchesPreference(String bedType, boolean smoking) {
+        return this.bedType.equals(bedType) && this.smoking == smoking && this.status == RoomStatus.VACANT;
+    }
+
+    public void assignGuest(Guest guest) {
+        this.guest = guest;
+        this.status = RoomStatus.OCCUPIED;
+    }
+
+    public void checkOut() {
+        this.guest = null;
+        this.status = RoomStatus.VACANT;
+    }
+
+    @Override
+    public String toString() {
+        return "Room " + roomNumber + " - " + bedType + ", " + (smoking ? "Smoking" : "Non-Smoking") + " - " + status;
+    }
+}
