@@ -1,0 +1,98 @@
+package hotel;
+
+import java.util.Objects;
+
+public interface Bookable {
+    String getFullName();
+    RoomPreferences getPreferences();
+}
+
+enum BedType {
+    KING, TWO_QUEENS, DOUBLE
+}
+
+enum SmokingPreference {
+    SMOKING, NON_SMOKING
+}
+
+class RoomPreferences {
+    private BedType bedType;
+    private SmokingPreference smokingPreference;
+
+    public RoomPreferences(BedType bedType, SmokingPreference smokingPreference) {
+        this.bedType = bedType;
+        this.smokingPreference = smokingPreference;
+    }
+
+    public BedType getBedType() {
+        return bedType;
+    }
+
+    public SmokingPreference getSmokingPreference() {
+        return smokingPreference;
+    }
+
+    @Override
+    public String toString() {
+        return bedType + ", " + smokingPreference;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof RoomPreferences)) return false;
+        RoomPreferences that = (RoomPreferences) obj;
+        return bedType == that.bedType &&
+               smokingPreference == that.smokingPreference;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(bedType, smokingPreference);
+    }
+}
+
+public class Guest implements Bookable {
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phoneNumber;
+    private RoomPreferences preferences;
+
+    public Guest(String firstName, String lastName, String email, String phoneNumber,
+                 BedType bedType, SmokingPreference smokingPreference) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.preferences = new RoomPreferences(bedType, smokingPreference);
+    }
+
+    @Override
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
+    @Override
+    public RoomPreferences getPreferences() {
+        return preferences;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Guest{" +
+                "name='" + getFullName() + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phoneNumber + '\'' +
+                ", preferences=" + preferences +
+                '}';
+    }
+}
