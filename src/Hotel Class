@@ -12,6 +12,14 @@ public class Hotel {
         initializeRooms();
     }
 
+    private void initializeRooms() {
+        for (int i = 1; i <= 30; i++) {
+            BedType bedType = (i % 3 == 0) ? BedType.TWO_QUEENS : BedType.KING;
+            SmokingPreference smokingPref = (i % 5 == 0) ? SmokingPreference.SMOKING : SmokingPreference.NON_SMOKING;
+            roomMap.put(i, new Room(i, bedType, smokingPref));
+        }
+    }
+
     public Room findRoomByNumber(int roomNumber) {
         return roomMap.get(roomNumber);
     }
@@ -27,6 +35,20 @@ public class Hotel {
         }
         return matches;
     }
+
+
+    public boolean assignRoom(Guest guest) {
+        List<Room> matches = findAvailableRooms(guest.getPreferences());
+        if (!matches.isEmpty()) {
+            Room assigned = matches.get(0);
+            assigned.setGuest(guest);
+            assigned.setStatus(RoomStatus.OCCUPIED);
+            guestList.add(guest);
+            return true;
+        }
+        return false;
+    }
+
 
     public boolean assignRoom(int roomNumber, Guest guest) {
         Room room = roomMap.get(roomNumber);
@@ -47,5 +69,10 @@ public class Hotel {
             }
         }
         return null;
+    }
+
+
+    public Collection<Room> getAllRooms() {
+        return roomMap.values();
     }
 }
