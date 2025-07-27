@@ -1,37 +1,49 @@
-enum RoomStatus {
-    OCCUPIED, PRE_RESERVED, VACANT, LOCKED
-}
+package hotel;
 
-class Room {
-    int roomNumber;
-    String bedType; // "King" or "Two Queens"
-    boolean smoking;
-    RoomStatus status;
-    Guest guest;
+public class Room {
+    private int roomNumber;
+    private BedType bedType;
+    private SmokingPreference smokingPreference;
+    private RoomStatus status;
+    private Guest guest;
 
-    public Room(int roomNumber, String bedType, boolean smoking) {
+    public Room(int roomNumber, BedType bedType, SmokingPreference smokingPreference) {
         this.roomNumber = roomNumber;
         this.bedType = bedType;
-        this.smoking = smoking;
+        this.smokingPreference = smokingPreference;
         this.status = RoomStatus.VACANT;
     }
 
-    public boolean matchesPreference(String bedType, boolean smoking) {
-        return this.bedType.equals(bedType) && this.smoking == smoking && this.status == RoomStatus.VACANT;
+    public boolean isAvailable() {
+        return status == RoomStatus.VACANT;
     }
 
-    public void assignGuest(Guest guest) {
+    public BedType getBedType() {
+        return bedType;
+    }
+
+    public SmokingPreference getSmokingPreference() {
+        return smokingPreference;
+    }
+
+    public void setGuest(Guest guest) {
         this.guest = guest;
-        this.status = RoomStatus.OCCUPIED;
     }
 
-    public void checkOut() {
-        this.guest = null;
-        this.status = RoomStatus.VACANT;
+    public void setStatus(RoomStatus status) {
+        this.status = status;
+    }
+
+    public Guest getGuest() {
+        return guest;
+    }
+
+    public int getRoomNumber() {
+        return roomNumber;
     }
 
     @Override
     public String toString() {
-        return "Room " + roomNumber + " - " + bedType + ", " + (smoking ? "Smoking" : "Non-Smoking") + " - " + status;
+        return "Room " + roomNumber + " - " + bedType + ", " + smokingPreference + " - " + status;
     }
 }
