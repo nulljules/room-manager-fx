@@ -55,10 +55,24 @@ class RoomPreferences {
 public class Guest implements Bookable {
     private String firstName;
     private String lastName;
-    private String email;
-    private String phoneNumber;
+    private String email;         // Optional: used as contact info
+    private String phoneNumber;   // Optional: not used in GUI yet
     private RoomPreferences preferences;
 
+    // ✅ Constructor used by JavaFX GUI
+    public Guest(String firstName, String lastName, String contactInfo,
+                 String bedPref, boolean smokingRequested) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = contactInfo;
+        this.phoneNumber = ""; // Not captured in GUI, but kept for completeness
+        this.preferences = new RoomPreferences(
+                parseBedType(bedPref),
+                smokingRequested ? SmokingPreference.SMOKING : SmokingPreference.NON_SMOKING
+        );
+    }
+
+    // 🔧 Existing detailed constructor (optional use elsewhere)
     public Guest(String firstName, String lastName, String email, String phoneNumber,
                  BedType bedType, SmokingPreference smokingPreference) {
         this.firstName = firstName;
@@ -66,6 +80,15 @@ public class Guest implements Bookable {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.preferences = new RoomPreferences(bedType, smokingPreference);
+    }
+
+    private BedType parseBedType(String bedPref) {
+        switch (bedPref.toUpperCase()) {
+            case "TWO QUEENS": return BedType.TWO_QUEENS;
+            case "KING": return BedType.KING;
+            case "DOUBLE": return BedType.DOUBLE;
+            default: return BedType.KING; // Default fallback
+        }
     }
 
     @Override
@@ -91,7 +114,6 @@ public class Guest implements Bookable {
         return "Guest{" +
                 "name='" + getFullName() + '\'' +
                 ", email='" + email + '\'' +
-                ", phone='" + phoneNumber + '\'' +
                 ", preferences=" + preferences +
                 '}';
     }
