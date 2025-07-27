@@ -1,0 +1,51 @@
+package hotel;
+
+import java.util.*;
+
+public class Hotel {
+    private Map<Integer, Room> roomMap;
+    private List<Guest> guestList;
+
+    public Hotel() {
+        roomMap = new HashMap<>();
+        guestList = new ArrayList<>();
+        initializeRooms();
+    }
+
+    public Room findRoomByNumber(int roomNumber) {
+        return roomMap.get(roomNumber);
+    }
+
+    public List<Room> findAvailableRooms(RoomPreferences preferences) {
+        List<Room> matches = new ArrayList<>();
+        for (Room room : roomMap.values()) {
+            if (room.isAvailable() &&
+                room.getBedType() == preferences.getBedType() &&
+                room.getSmokingPreference() == preferences.getSmokingPreference()) {
+                matches.add(room);
+            }
+        }
+        return matches;
+    }
+
+    public boolean assignRoom(int roomNumber, Guest guest) {
+        Room room = roomMap.get(roomNumber);
+        if (room != null && room.isAvailable()) {
+            room.setGuest(guest);
+            room.setStatus(RoomStatus.OCCUPIED);
+            guestList.add(guest);
+            return true;
+        }
+        return false;
+    }
+
+    public Guest findGuestByName(String firstName, String lastName) {
+        String fullName = (firstName + " " + lastName).trim().toLowerCase();
+        for (Guest guest : guestList) {
+            if (guest.getFullName().toLowerCase().equals(fullName)) {
+                return guest;
+            }
+        }
+        return null;
+    }
+}
