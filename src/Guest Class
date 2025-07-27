@@ -55,11 +55,11 @@ class RoomPreferences {
 public class Guest implements Bookable {
     private String firstName;
     private String lastName;
-    private String email;         // Optional: used as contact info
-    private String phoneNumber;   // Optional: not used in GUI yet
+    private String email;        
+    private String phoneNumber;   
     private RoomPreferences preferences;
 
-    // ✅ Constructor used by JavaFX GUI
+
     public Guest(String firstName, String lastName, String contactInfo,
                  String bedPref, boolean smokingRequested) {
         this.firstName = firstName;
@@ -72,7 +72,7 @@ public class Guest implements Bookable {
         );
     }
 
-    // 🔧 Existing detailed constructor (optional use elsewhere)
+
     public Guest(String firstName, String lastName, String email, String phoneNumber,
                  BedType bedType, SmokingPreference smokingPreference) {
         this.firstName = firstName;
