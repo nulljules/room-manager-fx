@@ -65,7 +65,7 @@ public class Guest implements Bookable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = contactInfo;
-        this.phoneNumber = ""; // Not captured in GUI, but kept for completeness
+        this.phoneNumber = ""; 
         this.preferences = new RoomPreferences(
                 parseBedType(bedPref),
                 smokingRequested ? SmokingPreference.SMOKING : SmokingPreference.NON_SMOKING
@@ -87,7 +87,7 @@ public class Guest implements Bookable {
             case "TWO QUEENS": return BedType.TWO_QUEENS;
             case "KING": return BedType.KING;
             case "DOUBLE": return BedType.DOUBLE;
-            default: return BedType.KING; // Default fallback
+            default: return BedType.KING; 
         }
     }
 
