@@ -31,7 +31,7 @@ src/
 │ ├── SearchController.java
 │ ├── MainView.fxml
 │ └── HotelApp.java
-└── Main.java
+
 ```
 ## To Access the Project
 
