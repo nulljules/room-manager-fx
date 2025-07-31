@@ -17,57 +17,52 @@ Room Manager FX is a JavaFX-based hotel room inventory management system (HIMS) 
 - Git & GitHub
 
 ## Project Structure
+```
 src/
 ├── Guest Class/
-│   └── Guest.java
+│ └── Guest.java
 ├── Hotel Class/
-│   └── Hotel.java
+│ └── Hotel.java
 ├── Room Class/
-│   └── Room.java
+│ └── Room.java
 ├── JavaFX UI/
-│   ├── CheckInController.java
-│   ├── CheckOutController.java
-│   ├── SearchController.java
-│   └── MainView.fxml
-├── Main.java
-## Getting Started
-
-To get started with Room Manager FX, clone the repository to your local machine using one of the following methods:
-
-### Clone via HTTPS
-
+│ ├── CheckInController.java
+│ ├── CheckOutController.java
+│ ├── SearchController.java
+│ ├── MainView.fxml
+│ └── HotelApp.java
+└── Main.java
 ```
+## To Access the Project
+
+Clone the repo using one of the following methods:
+
+HTTPS:
 git clone https://github.com/nulljules/room-manager-fx.git
-```
 
-### Clone via SSH
-
-```
+SSH:
 git clone git@github.com:nulljules/room-manager-fx.git
-```
 
-### Clone via GitHub CLI
-
-```
+GitHub CLI:
 gh repo clone nulljules/room-manager-fx
-```
 
 ## How to Run the Application
 
 1. Open IntelliJ IDEA.
-2. Select **File > Open** and choose the `room-manager-fx` project folder.
-3. Make sure JavaFX is correctly set up in your Project Structure settings.
-4. Open the `HotelApp` class located in the `src/JavaFX UI` folder.
-5. Right-click the `main()` method and select **Run 'HotelApp.main()'**.
+2. Go to File > Open and select the room-manager-fx project folder.
+3. Make sure JavaFX is installed and added to your project.  
+   Go to File > Project Structure > Libraries and add the JavaFX SDK if it's not already there.
+4. Set up VM options:  
+   Go to Run > Edit Configurations > VM options and paste the following (update path to your own JavaFX SDK):
 
-Note: This project does not use SceneBuilder. All GUI components were implemented directly in JavaFX.
+
+Note: SceneBuilder isn’t used. Everything in the UI was written in JavaFX code.
 
 ## Authors
 
-- [nulljules](https://github.com/nulljules)
-- [jetethan](https://github.com/jetethan)
-- [conorraftery](https://github.com/conorraftery)
+-nulljules
 
+-jetethan
 
-
+-conorrafftery
 
