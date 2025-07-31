@@ -30,6 +30,43 @@ src/
 │   ├── SearchController.java
 │   └── MainView.fxml
 ├── Main.java
+## Getting Started
+
+To get started with Room Manager FX, clone the repository to your local machine using one of the following methods:
+
+### Clone via HTTPS
+
+```
+git clone https://github.com/nulljules/room-manager-fx.git
+```
+
+### Clone via SSH
+
+```
+git clone git@github.com:nulljules/room-manager-fx.git
+```
+
+### Clone via GitHub CLI
+
+```
+gh repo clone nulljules/room-manager-fx
+```
+
+## How to Run the Application
+
+1. Open IntelliJ IDEA.
+2. Select **File > Open** and choose the `room-manager-fx` project folder.
+3. Make sure JavaFX is correctly set up in your Project Structure settings.
+4. Open the `HotelApp` class located in the `src/JavaFX UI` folder.
+5. Right-click the `main()` method and select **Run 'HotelApp.main()'**.
+
+Note: This project does not use SceneBuilder. All GUI components were implemented directly in JavaFX.
+
+## Authors
+
+- [nulljules](https://github.com/nulljules)
+- [jetethan](https://github.com/jetethan)
+- [conorraftery](https://github.com/conorraftery)
 
 
 
