@@ -55,6 +55,7 @@ gh repo clone nulljules/room-manager-fx
 4. Set up VM options:  
    Go to Run > Edit Configurations > VM options and paste the following (update path to your own JavaFX SDK):
 
+The main class of this JavaFX application is HotelApp, which initializes the GUI and launches the hotel inventory system.
 
 Note: SceneBuilder isn’t used. Everything in the UI was written in JavaFX code.
 
