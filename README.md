@@ -17,22 +17,19 @@ Room Manager FX is a JavaFX-based hotel room inventory management system (HIMS) 
 - Git & GitHub
 
 ## Project Structure
-```
-src/
-├── Guest Class/
-│ └── Guest.java
-├── Hotel Class/
-│ └── Hotel.java
-├── Room Class/
-│ └── Room.java
-├── JavaFXUI/
-│ ├── CheckInController.java
-│ ├── CheckOutController.java
-│ ├── SearchController.java
-│ ├── MainView.fxml
-│ └── HotelApp.java
 
-```
+src/  
+├── Guest Class/  
+│   └── Guest.java  
+├── Hotel Class/  
+│   └── Hotel.java  
+├── Room Class/  
+│   └── Room.java  
+├── JavaFXUI/  
+│   └── JavaFXUI.java
+
+
+
 ## To Access the Project
 
 Clone the repo using one of the following methods:
