@@ -18,6 +18,10 @@ public class Room {
         return status == RoomStatus.VACANT;
     }
 
+    public int getRoomNumber() {
+        return roomNumber;
+    }
+
     public BedType getBedType() {
         return bedType;
     }
@@ -26,6 +30,25 @@ public class Room {
         return smokingPreference;
     }
 
+    public RoomStatus getStatus() {
+        return status;
+    }
+
+    public Guest getGuest() {
+        return guest;
+    }
+
+    public void checkIn(Guest guest) {
+        this.guest = guest;
+        this.status = RoomStatus.OCCUPIED;
+    }
+
+    public void checkOut() {
+        this.guest = null;
+        this.status = RoomStatus.VACANT;
+    }
+
+    // ✅ NEW METHODS REQUIRED BY Hotel.java
     public void setGuest(Guest guest) {
         this.guest = guest;
     }
@@ -34,16 +57,8 @@ public class Room {
         this.status = status;
     }
 
-    public Guest getGuest() {
-        return guest;
-    }
-
-    public int getRoomNumber() {
-        return roomNumber;
-    }
-
     @Override
     public String toString() {
-        return "Room " + roomNumber + " - " + bedType + ", " + smokingPreference + " - " + status;
+        return "Room " + roomNumber + " [" + bedType + ", " + smokingPreference + ", " + status + "]";
     }
 }
