@@ -25,7 +25,7 @@ src/
 │ └── Hotel.java
 ├── Room Class/
 │ └── Room.java
-├── JavaFX UI/
+├── JavaFXUI/
 │ ├── CheckInController.java
 │ ├── CheckOutController.java
 │ ├── SearchController.java
